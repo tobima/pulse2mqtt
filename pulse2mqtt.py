@@ -55,7 +55,7 @@ def poll( config, session ):
     pulse_auth = ( config['pulse']['user'], config['pulse']['password'] )
     pulse_params = { 'node_id': config['pulse']['node'] }
 
-    r = session.get( pulse_url, auth=pulse_auth, params=pulse_params )
+    r = session.get( pulse_url, auth=pulse_auth, params=pulse_params, timeout=1)
     if r.status_code==200:
         smldata = r.content
         if len(smldata)>0:
