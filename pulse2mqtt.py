@@ -149,7 +149,7 @@ def run( config, tid_old, session, client ):
     # map sml to mqtt msg
     msg = map_values_to_msg(config, values)
     msg['transaction_id'] = tid_new
-    msg['Time'] = datetime.datetime.utcnow().isoformat()[:19]
+    msg['Time'] = datetime.datetime.now(datetime.UTC).isoformat()[:19]
 
     # publish or print
     if client:
